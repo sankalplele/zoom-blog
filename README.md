@@ -40,3 +40,28 @@ const conf = {
 export default conf;
 
 ```
+
+## Creating Services
+
+Services are created as a class. We are aiming that even if in future we want our project to work without **Appwrite** we can do the same.
+
+### Creating `auth.js`
+
+1. In this file we bring classes like Client, Account and ID from appwrite and we create our own class `AuthService` and **_we export the object created using `AuthService` named `authService`_**, so that, we dont need to create an instance everytime, we want to use it, we create it there and then only once.
+
+2. **Wrapper Classes and Functions** : We are constantly refering to **Appwrite** documentation from creation of this Auth service. We are making changes to that code in order to let our React app be independent of whichever backend we are using. This is the reason why we created our own custom AuthService class while in the documentation example the appwrite classes were directly used.
+
+Appwrite gives a service called `account.create()` to create an account, but we dont want to make our React app depend on appwrite, so to make it future proof we create a wrapper function (generalised) which calls this appwrite specific or any backend-specific function.
+
+> [!NOTE]
+> To understand the flow is important here, as after an account is created we are letting the user Login automatically.
+
+> So, to summarize the `auth.js`:
+>
+> 1. We created a class called `AuthService` which has the properties `client = new Client()` and `account` (uninitialized because when we checked the appwrite documentation we found that to initialize or set the account we need the configured client and our client is not configured yet. So we will do this task with the help of a constructor).
+> 2. We Create a constructor and set the properties of client object and also initialize the account object.
+> 3. Now we go on creating methods which can be called by the frontend to perform things like createAccount, login, logout, getCurrentUser. These are the 4 major methods and we have created them.
+> 4. Every method is an async function and also uses try-catch for error handling. We see things like the use of login function in createAccount function to make the user sign in immediately after creation of the account.
+> 5. Finally, we export the `authService` object which the instance of our `AuthService` class.
+
+> We have created the `auth.js` in such a way that we dont need to change a single thing in our frontend if in future we change the backend. We can simply make changes in this `auth.js` file keeping the parameters of the functions in mind.
