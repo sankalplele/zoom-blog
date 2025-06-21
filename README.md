@@ -80,3 +80,15 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 
 > [!IMPORTANT]
 > To use the query feature we must, in our appwrite collection, define indexes, for example, `status` is defined here.
+
+## Setting Up Redux ( State management )
+
+1. Simple `store.js` using `configureStore` and simple `authSlice.js` using `createSlice`.
+
+2. In authslice we have reducers namely, login and logout.
+
+## Creating Components
+
+1. We create a components folder inside src.
+2. Create 2 folders, namely Header and Footer and a file in each, namely Header.jsx and Footer.jsx respectively.
+3. We create `index.js` file in the components folder so that we can write all our component import statements there export them all and whenever we want to access them we can simply import `index.js` file.
