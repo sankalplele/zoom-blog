@@ -65,3 +65,18 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 > 5. Finally, we export the `authService` object which the instance of our `AuthService` class.
 
 > We have created the `auth.js` in such a way that we dont need to change a single thing in our frontend if in future we change the backend. We can simply make changes in this `auth.js` file keeping the parameters of the functions in mind.
+
+### Creating `config.js` (don't worry about the name it is basically a database service)
+
+1. We follow similar steps as we did to create `auth.js` to now create `config.js`.
+
+2. We create a class, declare the properties, use a constructor to fill them up and use them in methods of this class which are namely, `createPost`, `updatePost`, `deletePost`, `getPost`, `getPosts`, `uploadFile`, `deleteFile` and `getFilePreview`.
+
+3. The first three methods are similar to that we did in account. For get post we use the appwrite get post function.
+
+4. For `getPosts` we must keep in mind the following thing:
+   > In the getPosts method we wont expect the frontend to pass values into this function as they expect to get all the posts so no post id `slug` etc. nothing is required from there side.
+   > But we need to ensure that only "active" posts are fetched so, we set default parameters and use **Appwrite** feature called `Query` to get only those posts which are active.
+
+> [!IMPORTANT]
+> To use the query feature we must, in our appwrite collection, define indexes, for example, `status` is defined here.
