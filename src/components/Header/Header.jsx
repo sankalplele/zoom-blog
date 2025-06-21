@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { darkTheme, lightTheme } from "../../features/themeSlice";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 function Header() {
   const dispatch = useDispatch();
@@ -18,8 +19,12 @@ function Header() {
   return (
     <>
       Header
-      <button type="submit" onClick={themeChangeHandler}>
-        Switch to {themeMode == "dark" ? "light" : "dark"} theme
+      <button className="" type="submit" onClick={themeChangeHandler}>
+        {themeMode == "dark" ? (
+          <MdLightMode size={20} />
+        ) : (
+          <MdDarkMode size={20} />
+        )}
       </button>
     </>
   );
