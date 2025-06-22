@@ -18,14 +18,14 @@ function ThemeBtn() {
 
   return (
     <button
-      className="rounded-xl ml-2 border-slate-300 bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-900 hover:bg-white duration-600 flex justify-center items-center w-10"
+      className="rounded-2xl ml-2 border-slate-500  duration-500 flex justify-center dark:hover:bg-slate-600 hover:bg-slate-200 items-center w-10"
       type="submit"
       onClick={themeChangeHandler}
     >
       {themeMode == "dark" ? (
-        <MdLightMode size={20} />
+        <MdDarkMode size={21} />
       ) : (
-        <MdDarkMode size={20} />
+        <MdLightMode size={22} />
       )}
     </button>
   );

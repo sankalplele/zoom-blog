@@ -370,3 +370,5 @@ export default function Protected({ children, authentication = true }) {
 }
 
 ```
+
+12. ### Creation of files like RTE.jsx, PostForm.jsx of which I dont have the faintest idea.
