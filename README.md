@@ -100,6 +100,7 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 
 > [!IMPORTANT]
 > I am not getting how the redux reducer call and `authService` function logout() call is happening how we are changing `authStatus`. Basically, I am not understanding the flow of data among redux, authService and appwrite. How is status received from authService is being updated in store of redux.
+
 > Learn about `useNavigate()`
 
 8.  ### Creation of NavBar:
