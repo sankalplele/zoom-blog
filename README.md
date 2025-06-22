@@ -107,8 +107,8 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 
 10. ### Input Field as a component:
 
-        > [!IMPORTANT]
-        > Use of **_Forward Refs_** in React. Example: We are creating a login form. The input field is a separate component. Here, we will be using the sampe Input component for username and password. But we want the access of state in Login page so we use Forward Refs to forward the refernce of the state to the place where the componentn is used.
+> [!IMPORTANT]
+> Use of **_Forward Refs_** in React. Example: We are creating a login form. The input field is a separate component. Here, we will be using the sampe Input component for username and password. But we want the access of state in Login page so we use Forward Refs to forward the refernce of the state to the place where the componentn is used.
 
 ```
 import React, { useId } from "react";
