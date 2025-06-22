@@ -89,6 +89,55 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 
 ## Creating Components
 
-1. We create a components folder inside src.
-2. Create 2 folders, namely Header and Footer and a file in each, namely Header.jsx and Footer.jsx respectively.
-3. We create `index.js` file in the components folder so that we can write all our component import statements there export them all and whenever we want to access them we can simply import `index.js` file.
+1.  We create a components folder inside src.
+2.  Create 2 folders, namely Header and Footer and a file in each, namely Header.jsx and Footer.jsx respectively.
+3.  We create `index.js` file in the components folder so that we can write all our component import statements there export them all and whenever we want to access them we can simply import `index.js` file.
+4.  Creation of `Container.jsx`.
+    > **_Why?_**
+5.  Adding html in `Footer.jsx`. It also contains `<Link/>` from `react-router`.
+6.  Creation of `Logo.jsx`
+7.  In the `index.js` file of components we import-export the newly created ones.
+8.  > [!IMPORTANT]
+    > I am not getting how the redux reducer call and `authService` function logout() call is happening how we are changing `authStatus`. Basically, I am not understanding the flow of data among redux, authService and appwrite. How is status received from authService is being updated in store of redux.
+    > Learn about `useNavigate()`
+9.  ### Creation of NavBar:
+
+    Inside our Header, we create an array of objects called navItems where have the properties like name, slug(where the button will link, this is used for using useNavigate from react-router) and active status(this is used because we want to render the navbar conditionally, i.e, if the user has active session then we show logout otherwise login).
+    We created a navItems array as we can simply apply `map()` and render the buttons.
+
+10. ### Input Field as a component:
+
+        > [!IMPORTANT]
+        > Use of **_Forward Refs_** in React. Example: We are creating a login form. The input field is a separate component. Here, we will be using the sampe Input component for username and password. But we want the access of state in Login page so we use Forward Refs to forward the refernce of the state to the place where the componentn is used.
+
+```
+import React, { useId } from "react";
+
+const Input = React.forwardRef(function Input(
+  { label, type = "text", className = "", ...props },
+  ref
+) {
+  const id = useId();
+  return (
+    <div className="w-full">
+      {label && (
+        <label className="inline-block mb-1 pl-1" htmlFor={id}>
+          {label}
+        </label>
+      )}
+      <input
+        type={type}
+        className={`${className}`}
+        ref={ref}
+        {...props}
+        id={id}
+      />
+    </div>
+  );
+});
+
+export default Input;
+```
+
+> [!IMPORTANT]
+> Didn't understand THe `ref` story

@@ -1,32 +1,71 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { darkTheme, lightTheme } from "../../features/themeSlice";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { Container, Logo, LogoutBtn } from "../index.js";
 
 function Header() {
-  const dispatch = useDispatch();
-  const themeMode = useSelector((state) => state.theme.themeMode);
+  const authStatus = useSelector((state) => state.auth.status);
+  const navigate = useNavigate();
 
-  function themeChangeHandler() {
-    if (themeMode === "dark") dispatch(lightTheme());
-    else dispatch(darkTheme());
-  }
-  useEffect(() => {
-    document.querySelector("html").classList.remove("light", "dark");
-    document.querySelector("html").classList.add(themeMode);
-  }, [themeMode]);
+  const navItems = [
+    {
+      name: "Home",
+      slug: "/",
+      active: true,
+    },
+    {
+      name: "Login",
+      slug: "/login",
+      active: !authStatus,
+    },
+    {
+      name: "Signup",
+      slug: "/signup",
+      active: !authStatus,
+    },
+    {
+      name: "All Posts",
+      slug: "/all-posts",
+      active: authStatus,
+    },
+    {
+      name: "Add Post",
+      slug: "/add-post",
+      active: authStatus,
+    },
+  ];
 
   return (
-    <>
-      Header
-      <button className="" type="submit" onClick={themeChangeHandler}>
-        {themeMode == "dark" ? (
-          <MdLightMode size={20} />
-        ) : (
-          <MdDarkMode size={20} />
-        )}
-      </button>
-    </>
+    <header className="py-3 shadow dark:bg-slate-800 dark:text-white">
+      <Container>
+        <nav className="flex">
+          <div className="mr-4">
+            <Link to="/">
+              <Logo width="70px" />
+            </Link>
+          </div>
+          <ul className="flex ml-auto">
+            {navItems.map((item) =>
+              item.active ? (
+                <li key={item.name}>
+                  <button
+                    onClick={() => navigate(item.slug)}
+                    className="inline-block px-6 py-2 duration-200 hover:bg-blue-200"
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ) : null
+            )}
+            {authStatus && (
+              <li>
+                <LogoutBtn />
+              </li>
+            )}
+          </ul>
+        </nav>
+      </Container>
+    </header>
   );
 }
 
