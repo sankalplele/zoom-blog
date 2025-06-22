@@ -97,9 +97,11 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 5.  Adding html in `Footer.jsx`. It also contains `<Link/>` from `react-router`.
 6.  Creation of `Logo.jsx`
 7.  In the `index.js` file of components we import-export the newly created ones.
-    > [!IMPORTANT]
-    > I am not getting how the redux reducer call and `authService` function logout() call is happening how we are changing `authStatus`. Basically, I am not understanding the flow of data among redux, authService and appwrite. How is status received from authService is being updated in store of redux.
-    > Learn about `useNavigate()`
+
+> [!IMPORTANT]
+> I am not getting how the redux reducer call and `authService` function logout() call is happening how we are changing `authStatus`. Basically, I am not understanding the flow of data among redux, authService and appwrite. How is status received from authService is being updated in store of redux.
+> Learn about `useNavigate()`
+
 8.  ### Creation of NavBar:
 
     Inside our Header, we create an array of objects called navItems where have the properties like name, slug(where the button will link, this is used for using useNavigate from react-router) and active status(this is used because we want to render the navbar conditionally, i.e, if the user has active session then we show logout otherwise login).
