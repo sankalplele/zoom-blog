@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Container, Logo, LogoutBtn } from "../index.js";
+import { Container, Logo, LogoutBtn, ThemeBtn } from "../index.js";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
@@ -36,7 +36,7 @@ function Header() {
   ];
 
   return (
-    <header className="py-3 shadow dark:bg-slate-800 dark:text-white">
+    <header className="py-3 shadow dark:bg-slate-900 dark:text-white">
       <Container>
         <nav className="flex">
           <div className="mr-4">
@@ -50,7 +50,7 @@ function Header() {
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-block px-6 py-2 duration-200 hover:bg-blue-200"
+                    className="inline-block px-6 py-2 duration-200 hover:bg-slate-300 dark:hover:bg-indigo-700 rounded-xl"
                   >
                     {item.name}
                   </button>
@@ -62,6 +62,7 @@ function Header() {
                 <LogoutBtn />
               </li>
             )}
+            <ThemeBtn />
           </ul>
         </nav>
       </Container>

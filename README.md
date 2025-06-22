@@ -144,3 +144,10 @@ export default Input;
 
 > [!IMPORTANT]
 > Didn't understand THe `ref` story
+
+> [!TIP] > `{options?.map()}`: This is used, beacuse, options can be empty and if we apply .map() then app will crash as mentioned by Hitesh Sir, so, we use conditional .map() we can also use if-else etc. but this is a better syntax.
+
+Another Tip:
+
+> [!TIP]
+> Instead of wrapping the entire function definition in React.forwardRef() as we did in `Input.jsx` we can simply do this: `export default React.forwardRef(Select);` in the export statement.

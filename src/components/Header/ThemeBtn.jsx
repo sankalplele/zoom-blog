@@ -17,7 +17,11 @@ function ThemeBtn() {
   }, [themeMode]);
 
   return (
-    <button className="" type="submit" onClick={themeChangeHandler}>
+    <button
+      className="rounded-xl ml-2 border-slate-300 bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-900 hover:bg-white duration-600 flex justify-center items-center w-10"
+      type="submit"
+      onClick={themeChangeHandler}
+    >
       {themeMode == "dark" ? (
         <MdLightMode size={20} />
       ) : (
