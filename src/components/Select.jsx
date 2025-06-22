@@ -12,7 +12,13 @@ function Select({ options, label, className = "", ...props }, ref) {
         {...props}
       >
         {options?.map((option) => {
-          <option key={option} value={option}></option>;
+          return (
+            <option
+              className="text-blue-500"
+              key={option}
+              value={option}
+            ></option>
+          );
         })}
       </select>
     </div>

@@ -44,7 +44,11 @@ export default function PostForm({ post }) {
         const fileId = file.$id;
         data.featuredImage = fileId;
         const dbPost = await appwriteService.createPost({
-          ...data,
+          title: data.title,
+          slug: data.slug,
+          content: data.content,
+          featuredImage: data.featuredImage,
+          status: data.status,
           userId: userData.$id,
         });
 
@@ -107,12 +111,12 @@ export default function PostForm({ post }) {
         <Input
           label="Featured Image :"
           type="file"
-          className="mb-4"
+          className="mb-4 border-2"
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image", { required: !post })}
         />
         {post && (
-          <div className="w-full mb-4">
+          <div className="w-full mb-4 border-2 border-red-800">
             <img
               src={appwriteService.getFilePreview(post.featuredImage)}
               alt={post.title}
