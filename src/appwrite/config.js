@@ -81,7 +81,7 @@ export class Service {
   // but we need to ensure that only "active" posts are fetched so, we set default parameters and use appwrite feature called Query to get only those posts which are active.
   async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-      await this.databases.listDocuments(
+      return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         queries
@@ -116,7 +116,8 @@ export class Service {
   }
 
   getFilePreview(fileId) {
-    return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+    //return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+    return this.bucket.getFileView(conf.appwriteBucketId, fileId);
   }
 }
 
