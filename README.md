@@ -97,15 +97,15 @@ Appwrite gives a service called `account.create()` to create an account, but we 
 5.  Adding html in `Footer.jsx`. It also contains `<Link/>` from `react-router`.
 6.  Creation of `Logo.jsx`
 7.  In the `index.js` file of components we import-export the newly created ones.
-8.  > [!IMPORTANT]
+    > [!IMPORTANT]
     > I am not getting how the redux reducer call and `authService` function logout() call is happening how we are changing `authStatus`. Basically, I am not understanding the flow of data among redux, authService and appwrite. How is status received from authService is being updated in store of redux.
     > Learn about `useNavigate()`
-9.  ### Creation of NavBar:
+8.  ### Creation of NavBar:
 
     Inside our Header, we create an array of objects called navItems where have the properties like name, slug(where the button will link, this is used for using useNavigate from react-router) and active status(this is used because we want to render the navbar conditionally, i.e, if the user has active session then we show logout otherwise login).
     We created a navItems array as we can simply apply `map()` and render the buttons.
 
-10. ### Input Field as a component:
+9.  ### Input Field as a component:
 
 > [!IMPORTANT]
 > Use of **_Forward Refs_** in React. Example: We are creating a login form. The input field is a separate component. Here, we will be using the sampe Input component for username and password. But we want the access of state in Login page so we use Forward Refs to forward the refernce of the state to the place where the componentn is used.
