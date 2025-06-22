@@ -7,6 +7,10 @@ import ThemeBtn from "./Header/ThemeBtn";
 import Button from "./Button.jsx";
 import Input from "./Input.jsx";
 import RTE from "./RTE.jsx";
+import PostCard from "./PostCard.jsx";
+import SignUp from "./SignUp.jsx";
+import Select from "./Select.jsx";
+import AuthLayout from "./AuthLayout.jsx";
 
 export {
   Header,
@@ -18,4 +22,8 @@ export {
   Button,
   Input,
   RTE,
+  PostCard,
+  SignUp,
+  Select,
+  AuthLayout,
 };
